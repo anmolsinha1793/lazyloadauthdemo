@@ -1,0 +1,57 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Eventhub</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/customers" routerLinkActive="active">Customers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/orders" routerLinkActive="active">Orders</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <a class="nav-link"  *ngIf = "!_authService.isLoggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
+      <a class="nav-link"  *ngIf = "!_authService.isLoggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
+      <a class="nav-link" *ngIf = "_authService.isLoggedIn()" style="cursor:pointer" 
+        (click)="_authService.logoutUser()">Logout</a>
+    </ul>
+  </div>
+</nav>
+  <!-- <button routerLink="/customers">Customers</button>
+  <button routerLink="/orders">Orders</button>
+  <button routerLink="">Home</button> -->
+<!-- <div class="row">
+  <div class="col-sm-6">
+    <div class="card rounded-0">
+      <div class="card-header">
+        <h3>RegForm</h3>
+      </div>
+      <div class="card-body">
+        <form class="form" [formGroup]="form" (ngSubmit)="onRegister()">
+            <input  formControlName="first" type="text" placeholder="First Name" required>
+            <input  formControlName="last" type="password" placeholder="Last Name" required>
+          <div>
+            <label>Account</label>
+            <input  formControlName="username" type="text" placeholder="Username" required>
+            <input formControlName="password" type="password" placeholder="Password" required>
+            <input formControlName="confirm" type="password" placeholder="Confirm Password" required>
+          </div>
+            <label>Would you like Newsletter?</label>
+            <input formControlName="newsletter" type="radio" >Yes
+            <input formControlName="newsletter" type="radio" >No
+          <button class="btn btn-primary float-right">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <p>Form: {{form.value | json}}</p>
+</div> -->
+
+  <router-outlet></router-outlet>
