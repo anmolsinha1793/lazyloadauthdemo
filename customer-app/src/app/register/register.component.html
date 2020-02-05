@@ -16,7 +16,7 @@
                 😺 Email is available!
               </div>
             
-              <div *ngIf="registerUser.get('email').errors && registerUser.get('email').errors.userNameExists">
+              <div *ngIf="registerUser.get('email').errors && registerUser.get('email').errors.emailTaken">
                 😢 Oh noes, this email is already taken!
               </div>
           </div>
