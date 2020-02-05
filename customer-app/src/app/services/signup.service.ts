@@ -10,7 +10,7 @@ export class SignupService {
     return this.http
       .get('assets/data/users.json')
       .pipe(
-          map(res => res.filter(user => user.email === email)),
+          map((res:any) => res.filter(user => user.email === email)),
           map(users => !users.length)
       )
     
